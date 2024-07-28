@@ -21,11 +21,9 @@ namespace INFRAESTRUCTURE.PELUQUERIA.Data
         public virtual DbSet<Category> Categories { get; set; } = null!;
         public virtual DbSet<Client> Clients { get; set; } = null!;
         public virtual DbSet<News> News { get; set; } = null!;
-        public virtual DbSet<Persona> Personas { get; set; } = null!;
         public virtual DbSet<Product> Products { get; set; } = null!;
         public virtual DbSet<Specialist> Specialists { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
-        public virtual DbSet<UserType> UserTypes { get; set; } = null!;
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -11,35 +11,35 @@ namespace INFRAESTRUCTURE.PELUQUERIA.Data.Configurations
 {
     public class ProductConfig : IEntityTypeConfiguration<Product>
     {
-        public void Configure(EntityTypeBuilder<Product> builder)
+        public void Configure(EntityTypeBuilder<Product> entity)
         {
-            builder.ToTable("PRODUCTS");
+            entity.ToTable("PRODUCTS");
 
-            builder.Property(e => e.ProductId)
+            entity.Property(e => e.ProductId)
                 .HasColumnType("numeric(18, 0)")
                 .ValueGeneratedOnAdd()
                 .HasColumnName("PRODUCT_ID");
 
-            builder.Property(e => e.CategorieIdx)
+            entity.Property(e => e.CategorieIdx)
                 .HasColumnType("numeric(18, 0)")
                 .HasColumnName("CATEGORIE_IDX");
 
-            builder.Property(e => e.Photo).HasColumnName("PHOTO");
+            entity.Property(e => e.Photo).HasColumnName("PHOTO");
 
-            builder.Property(e => e.Product1)
+            entity.Property(e => e.Product1)
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("PRODUCT");
 
-            builder.Property(e => e.Quantity)
+            entity.Property(e => e.Quantity)
                 .HasColumnType("numeric(18, 0)")
                 .HasColumnName("QUANTITY");
 
-            builder.HasOne(d => d.CategorieIdxNavigation)
+            entity.HasOne(d => d.CategorieIdxNavigation)
                 .WithMany(p => p.Products)
                 .HasForeignKey(d => d.CategorieIdx)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__PRODUCTS__CATEGO__4BAC3F29");
+                .HasConstraintName("FK__PRODUCTS__CATEGO__47DBAE45");
         }
     }
 }

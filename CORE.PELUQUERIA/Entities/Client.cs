@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
 
 namespace CORE.PELUQUERIA.Entities
 {
@@ -7,7 +8,6 @@ namespace CORE.PELUQUERIA.Entities
         public Client()
         {
             Appointments = new HashSet<Appointment>();
-            Users = new HashSet<User>();
         }
 
         public decimal ClientId { get; set; }
@@ -15,8 +15,8 @@ namespace CORE.PELUQUERIA.Entities
         public string? LastName { get; set; }
         public byte[]? Photo { get; set; }
         public DateTime? LastVisit { get; set; }
+        public string? SpecialistNote { get; set; }
 
         public virtual ICollection<Appointment> Appointments { get; set; }
-        public virtual ICollection<User> Users { get; set; }
     }
 }

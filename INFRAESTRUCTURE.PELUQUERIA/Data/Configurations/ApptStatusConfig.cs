@@ -11,19 +11,19 @@ namespace INFRAESTRUCTURE.PELUQUERIA.Data.Configurations
 {
     public class ApptStatusConfig : IEntityTypeConfiguration<AppointmentStatus>
     {
-        public void Configure(EntityTypeBuilder<AppointmentStatus> builder)
+        public void Configure(EntityTypeBuilder<AppointmentStatus> entity)
         {
-            builder.HasKey(e => e.ApptStatusId)
-                    .HasName("PK__APPOINTM__A5654C37F889A601");
+            entity.HasKey(e => e.ApptStatusId)
+                    .HasName("PK__APPOINTM__A5654C3740426F60");
 
-            builder.ToTable("APPOINTMENT_STATUS");
+            entity.ToTable("APPOINTMENT_STATUS");
 
-            builder.Property(e => e.ApptStatusId)
+            entity.Property(e => e.ApptStatusId)
                 .HasColumnType("numeric(18, 0)")
                 .ValueGeneratedOnAdd()
                 .HasColumnName("APPT_STATUS_ID");
 
-            builder.Property(e => e.ApptStatus)
+            entity.Property(e => e.ApptStatus)
                 .HasMaxLength(30)
                 .IsUnicode(false)
                 .HasColumnName("APPT_STATUS");

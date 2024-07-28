@@ -11,30 +11,39 @@ namespace INFRAESTRUCTURE.PELUQUERIA.Data.Configurations
 {
     public class SpecialistConfig : IEntityTypeConfiguration<Specialist>
     {
-        public void Configure(EntityTypeBuilder<Specialist> builder)
+        public void Configure(EntityTypeBuilder<Specialist> entity)
         {
-            builder.ToTable("SPECIALISTS");
+            entity.ToTable("SPECIALISTS");
 
-            builder.Property(e => e.SpecialistId)
+            entity.Property(e => e.SpecialistId)
                 .HasColumnType("numeric(18, 0)")
                 .ValueGeneratedOnAdd()
                 .HasColumnName("SPECIALIST_ID");
 
-            builder.Property(e => e.SpecialistName)
+            entity.Property(e => e.BitAdmin).HasColumnName("BIT_ADMIN");
+
+            entity.Property(e => e.BitStatus).HasColumnName("BIT_STATUS");
+
+            entity.Property(e => e.SpecialistEmail)
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .HasColumnName("SPECIALIST_EMAIL");
+
+            entity.Property(e => e.SpecialistName)
                 .HasMaxLength(100)
                 .IsUnicode(false)
                 .HasColumnName("SPECIALIST_NAME");
 
-            builder.Property(e => e.SpecialistNote)
+            entity.Property(e => e.SpecialistNote)
                 .HasMaxLength(100)
                 .IsUnicode(false)
                 .HasColumnName("SPECIALIST_NOTE");
 
-            builder.Property(e => e.SpecialistPhone)
+            entity.Property(e => e.SpecialistPhone)
                 .HasColumnType("numeric(18, 0)")
                 .HasColumnName("SPECIALIST_PHONE");
 
-            builder.Property(e => e.SpecialistPhoto).HasColumnName("SPECIALIST_PHOTO");
+            entity.Property(e => e.SpecialistPhoto).HasColumnName("SPECIALIST_PHOTO");
         }
     }
 }

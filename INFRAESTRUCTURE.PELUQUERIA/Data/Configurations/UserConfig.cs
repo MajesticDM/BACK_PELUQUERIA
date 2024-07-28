@@ -11,41 +11,29 @@ namespace INFRAESTRUCTURE.PELUQUERIA.Data.Configurations
 {
     public class UserConfig : IEntityTypeConfiguration<User>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<User> entity)
         {
-            builder.ToTable("USERS");
+            entity.ToTable("USERS");
 
-            builder.Property(e => e.UserId)
+            entity.Property(e => e.UserId)
                 .HasColumnType("numeric(18, 0)")
                 .ValueGeneratedOnAdd()
                 .HasColumnName("USER_ID");
 
-            builder.Property(e => e.ClientIdx)
+            entity.Property(e => e.Employee).HasColumnName("EMPLOYEE");
+
+            entity.Property(e => e.Password)
+                .IsUnicode(false)
+                .HasColumnName("PASSWORD");
+
+            entity.Property(e => e.PersonIdx)
                 .HasColumnType("numeric(18, 0)")
-                .HasColumnName("CLIENT_IDX");
+                .HasColumnName("PERSON_IDX");
 
-            builder.Property(e => e.Password).HasColumnName("PASSWORD");
-
-            builder.Property(e => e.UserName)
+            entity.Property(e => e.UserName)
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("USER_NAME");
-
-            builder.Property(e => e.UserTypeIdx)
-                .HasColumnType("numeric(18, 0)")
-                .HasColumnName("USER_TYPE_IDX");
-
-            builder.HasOne(d => d.ClientIdxNavigation)
-                .WithMany(p => p.Users)
-                .HasForeignKey(d => d.ClientIdx)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__USERS__CLIENT_ID__403A8C7D");
-
-            builder.HasOne(d => d.UserTypeIdxNavigation)
-                .WithMany(p => p.Users)
-                .HasForeignKey(d => d.UserTypeIdx)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__USERS__USER_TYPE__412EB0B6");
         }
     }
 }

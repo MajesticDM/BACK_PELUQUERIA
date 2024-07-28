@@ -1,6 +1,7 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
 
-namespace CORE.PELUQUERIA.Entities
+namespace CORE.PELUQUERIA.DTOs
 {
     public partial class ClientDTO
     {
@@ -10,5 +11,6 @@ namespace CORE.PELUQUERIA.Entities
         public string? LastName { get; set; }
         public byte[]? Photo { get; set; }
         public DateTime? LastVisit { get; set; }
+        public string? SpecialistNote { get; set; }
     }
 }

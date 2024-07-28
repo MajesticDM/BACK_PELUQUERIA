@@ -50,7 +50,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 app.UseCors(options =>
 {
-    options.WithOrigins("http://localhost:4200", "http://localhost:5001", "http://localhost:3000");
+    options.WithOrigins("http://localhost:4200", "http://localhost:5001", "http://localhost:3000", "http://localhost:8000");
     options.AllowAnyMethod();
     options.AllowAnyHeader();
 });

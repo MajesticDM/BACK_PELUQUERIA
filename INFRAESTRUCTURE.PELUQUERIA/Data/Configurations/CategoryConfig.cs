@@ -11,19 +11,19 @@ namespace INFRAESTRUCTURE.PELUQUERIA.Data.Configurations
 {
     public class CategoryConfig : IEntityTypeConfiguration<Category>
     {
-        public void Configure(EntityTypeBuilder<Category> builder)
+        public void Configure(EntityTypeBuilder<Category> entity)
         {
-            builder.HasKey(e => e.CategorieId)
-                    .HasName("PK__CATEGORI__235104C3B8ABF743");
+            entity.HasKey(e => e.CategorieId)
+                    .HasName("PK__CATEGORI__235104C3179A4855");
 
-            builder.ToTable("CATEGORIES");
+            entity.ToTable("CATEGORIES");
 
-            builder.Property(e => e.CategorieId)
+            entity.Property(e => e.CategorieId)
                 .HasColumnType("numeric(18, 0)")
                 .ValueGeneratedOnAdd()
                 .HasColumnName("CATEGORIE_ID");
 
-            builder.Property(e => e.Categorie)
+            entity.Property(e => e.Categorie)
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("CATEGORIE");

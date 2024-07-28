@@ -11,19 +11,19 @@ namespace INFRAESTRUCTURE.PELUQUERIA.Data.Configurations
 {
     public class ApptTypeConfig : IEntityTypeConfiguration<AppointmentType>
     {
-        public void Configure(EntityTypeBuilder<AppointmentType> builder)
+        public void Configure(EntityTypeBuilder<AppointmentType> entity)
         {
-            builder.HasKey(e => e.ApptTypeId)
-                    .HasName("PK__APPOINTM__CE54A7778DCFAE80");
+            entity.HasKey(e => e.ApptTypeId)
+                   .HasName("PK__APPOINTM__CE54A777F1284426");
 
-            builder.ToTable("APPOINTMENT_TYPES");
+            entity.ToTable("APPOINTMENT_TYPES");
 
-            builder.Property(e => e.ApptTypeId)
+            entity.Property(e => e.ApptTypeId)
                 .HasColumnType("numeric(18, 0)")
                 .ValueGeneratedOnAdd()
                 .HasColumnName("APPT_TYPE_ID");
 
-            builder.Property(e => e.ApptType)
+            entity.Property(e => e.ApptType)
                 .HasMaxLength(30)
                 .IsUnicode(false)
                 .HasColumnName("APPT_TYPE");

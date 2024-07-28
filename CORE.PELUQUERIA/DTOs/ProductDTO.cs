@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
 
 namespace CORE.PELUQUERIA.DTOs
 {
@@ -9,5 +10,6 @@ namespace CORE.PELUQUERIA.DTOs
         public string? Product1 { get; set; }
         public decimal? Quantity { get; set; }
         public byte[]? Photo { get; set; }
+
     }
 }

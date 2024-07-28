@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CORE.PELUQUERIA.Entities
+namespace INFRAESTRUCTURE.PELUQUERIA.Cambios
 {
     public partial class Specialist
     {
